@@ -1,0 +1,97 @@
+.img_trending{
+  object-fit: cover;
+  width: 200px;
+  height: 330px;
+  border-radius: 20px;
+  display: block;
+  position: relative;
+
+}
+
+.trending__movies_item{
+  position: relative;
+  margin-right: 36px;
+  transition: .3s ease-in-out;
+  &:hover{
+    div{
+      opacity: 1;
+    }
+  }
+}
+
+.trending__movies-item-info{
+  background: rgba(33, 32, 30, 0.16);
+  backdrop-filter: blur(5px);
+  border-radius: 0 0 20px 20px;
+  max-width: 200px;
+  position: absolute;
+  transition: .3s ease-in-out;
+
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  text-align: center;
+  opacity: 0;
+  a{
+    text-decoration: none;
+    &:hover{
+      text-decoration: underline;
+      text-decoration-color: #fff;
+    }
+  }
+
+}
+
+.trending__movies_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 39px;
+}
+
+.trending__movies--title{
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+
+  margin-bottom: 16px;
+}
+
+
+.trending__movies__item-title{
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+
+.topRated{
+  max-width: 210px;
+  position: unset;
+  padding: 8px 0 0 0;
+}
+
+
+.trending__movies_item-box-rating{
+  background: rgba(232, 232, 232, 0.15);
+  backdrop-filter: blur(10px);
+  width: 68px;
+  height: 28px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  z-index: 1;
+  border-radius: 0 20px;
+}
+
+.box__rating--value{
+  color: #E8E8E8;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 5px;
+}

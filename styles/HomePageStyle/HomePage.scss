@@ -1,0 +1,37 @@
+.box__img{
+  margin: 40px 0;
+  position: relative;
+}
+
+.home__page__box{
+  padding-top: 4px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.home__page--container{
+  display: flex;
+  flex-direction: column;
+  padding-right: 51px;
+  width: 1450px;
+}
+
+
+.css-1m73shi-MuiFormLabel-root-MuiInputLabel-root{
+  color: #212121 !important;
+}
+
+.MuiOutlinedInput-root{
+  color: #666666 !important;
+
+  &::placeholder{
+    color: #666666 !important;
+  }
+}
+.css-1qqsdnr-MuiAutocomplete-root .MuiOutlinedInput-root {
+border-radius: 30px !important;
+padding: 14px !important;
+}
+
+

@@ -1,9 +1,11 @@
 .sideBar__container{
-  background: #191817;
+  background: #212121;
+  border-radius: 0px 45px 45px 0px;
   height: 100vh;
   width: 100%;
-  max-width: 269px;
-  padding: 18px 30px;
+  max-width: 250px;
+  padding: 56px 0 69px 0;
+  margin-right: 185px;
 }
 
 .sideBar__inner{
@@ -12,7 +14,10 @@
 }
 
 .logo_box{
-  margin-bottom: 53px;
+  margin-bottom: 83px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .menu__side-bar{
@@ -32,35 +37,29 @@
 }
 
 .menu__side-bar-list--item{
-  padding: 16px 0 0 30px;
-  position: relative;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+  min-height: 86px;
+  width: 100%;
+  transition: .3s;
   a{
-    color: rgb(255, 255, 255);
+    color: #666666;
     text-decoration: none;
+  }
+
+  &:hover{
+    background: rgba(77, 77, 77, 0.1);
   }
 }
 
 .menu__side-bar-list--item.active{
-  &:before{
-    content: "";
-    width: 6px;
-    height: 18px;
-    background: rgb(248, 36, 47);
-    position: absolute;
-    left: -30px;
-    bottom: 4px;
-    border-radius: 0 10px 10px 0;
-  }
-
-  &:after{
-    content: "";
-    width: 4px;
-    height: 11.25px;
-    background: rgb(248, 36, 47);
-    position: absolute;
-    left: -30px;
-    bottom: 4px;
-    filter: blur(16px);;
+  background: rgba(61, 210, 204, 0.4);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  border-right: 6px solid rgba(61, 210, 204, 0.75);
+  a{
+    color: #3DD2CC;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   }
 }
