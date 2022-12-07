@@ -4,14 +4,7 @@ import { CircularProgress } from "@mui/material";
 
 const Loading = () => {
   return (
-    <div
-      style={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className="loading__container">
       <CircularProgress size={100} />
     </div>
   );

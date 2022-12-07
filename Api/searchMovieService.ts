@@ -1,9 +1,9 @@
 import { instance } from "./instance";
 import { API_KEY } from "../Data/Const";
 
-export async function getMovieBySearch() {
+export async function getMovieBySearch(searchValue: string) {
   const res = await fetch(
-    instance.baseURL + `/search/movie?api_key=${API_KEY}&query=The`
+    instance.baseURL + `/search/movie?api_key=${API_KEY}&query=` +  searchValue
   );
 
   if (!res.ok) {

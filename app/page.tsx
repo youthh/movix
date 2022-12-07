@@ -14,8 +14,6 @@ const Page = async () => {
   const movies = await getTrendingMovies();
   const topRated = await getTopRated();
   const upcoming = await getUpcoming();
-  const searchMovie = await getMovieBySearch();
-  console.log(searchMovie);
   return (
     <div className={"home__page--container"}>
       <Header />

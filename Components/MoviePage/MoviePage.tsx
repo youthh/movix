@@ -3,7 +3,7 @@ import React from "react";
 import {
   movieDetails,
   responseCast,
-  TrendingMovie,
+  movieResponse,
 } from "../../Data/Types/types";
 import Image from "next/image";
 import maverik from "../../Images/maverik.png";
@@ -18,7 +18,7 @@ import CategoryMovie from "../HomePage/CategoryMovie";
 import TopCast from "./TopCast";
 
 type MoviePageProps = {
-  similarMovie: TrendingMovie[];
+  similarMovie: movieResponse[];
   movieDetails: movieDetails;
   cast: responseCast;
 };

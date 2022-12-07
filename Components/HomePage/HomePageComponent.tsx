@@ -2,15 +2,15 @@
 import React from "react";
 import Image from "next/image";
 import pic from "../../Images/homeimg.png";
-import { TrendingMovie } from "../../Data/Types/types";
+import { movieResponse } from "../../Data/Types/types";
 import SearchField from "./Search";
 import { Button } from "@mui/material";
 import CategoryMovie from "./CategoryMovie";
 
 type HomePageMoviesProps = {
-  trendingMovies: TrendingMovie[];
-  movies: TrendingMovie[];
-  topRated: TrendingMovie[];
+  trendingMovies: movieResponse[];
+  movies: movieResponse[];
+  topRated: movieResponse[];
 };
 
 const HomePageComponent = ({
