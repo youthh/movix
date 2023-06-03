@@ -6,8 +6,12 @@ import Autocomplete from "@mui/material/Autocomplete";
 import { inputStyle } from "../../styles/HomePageStyle/HomePageMaterial";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from "react";
-import { instance } from "../../Api/instance";
-import { API_KEY } from "../../Data/Const";
+import { getMovieBySearch } from "../../Api/searchMovieService";
+import useDebounce from "../../Hooks/useDebounce";
+import { movieResponse } from "../../Data/Types/types";
+import { CircularProgress } from "@mui/material";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const theme = createTheme({
   palette: {
@@ -18,22 +22,50 @@ const theme = createTheme({
 });
 
 function Search() {
-  const [isFethc, setFetching] = useState();
-  const top100Films = [
-    { title: "The Shawshank Redemption", year: 1994 },
-    { title: "The Godfather", year: 1972 },
-  ];
+  const [isFetch, setFetching] = useState(false);
+  const [value, setValue] = useState<string>("");
+  const [movies, setMovies] = useState<movieResponse[]>([]);
+  const debouncedValue = useDebounce<string>(value, 1000);
 
+  const getSearchMovies = (
+    data: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
+    setValue(data.target.value);
+  };
+  useEffect(() => {
+    value && setFetching(true);
+    debouncedValue &&
+      getMovieBySearch(value).then((data) => {
+        setFetching(false);
+        setMovies(data.results);
+      });
+
+  }, [debouncedValue]);
   return (
     <Stack spacing={3} sx={{ width: 889 }}>
       <Autocomplete
         freeSolo
         id="free-solo-2-demo"
-        style={{ borderRadius: "30px" }}
+        style={{ borderRadius: "30px", background: "#212121" }}
         disableClearable
-        options={top100Films.map((option) => option.title)}
+        loading={isFetch}
+        options={movies.map(
+          (option) => option.title + " " + option?.release_date?.slice(0, 4)
+        )}
+        renderOption={(props, option) => {
+          const id = movies.filter(
+            (movie) =>
+              movie.title + " " + movie?.release_date?.slice(0, 4) === option
+          )[0].id;
+          return (
+            <li className={"search__item"}>
+              <Link href={"film/" + id}>{option}</Link>
+            </li>
+          );
+        }}
         renderInput={(params) => (
           <TextField
+            onChange={(data) => getSearchMovies(data)}
             color={"primary"}
             style={inputStyle}
             placeholder={"Search for movies"}
@@ -43,6 +75,14 @@ function Search() {
             InputProps={{
               ...params.InputProps,
               type: "search",
+              endAdornment: (
+                <React.Fragment>
+                  {isFetch && debouncedValue ? (
+                    <CircularProgress color="inherit" size={20} />
+                  ) : null}
+                  {params.InputProps.endAdornment}
+                </React.Fragment>
+              ),
             }}
           />
         )}

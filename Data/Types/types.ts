@@ -5,7 +5,7 @@ export type PostData = {
   body: "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto";
 };
 
-export type TrendingMovie = {
+export type movieResponse = {
   adult: false;
   backdrop_path: "/rfnmMYuZ6EKOBvQLp2wqP21v7sI.jpg";
   genre_ids: number[];

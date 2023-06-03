@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import star from "../../Images/star_rating.png";
 import Link from "next/link";
-import { TrendingMovie } from "../../Data/Types/types";
+import { movieResponse } from "../../Data/Types/types";
 type CategoryProps = {
-  movies: TrendingMovie[];
+  movies: movieResponse[];
   nameCategory: string;
 };
 const CategoryMovie = ({ movies, nameCategory }: CategoryProps) => {
